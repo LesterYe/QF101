@@ -3,6 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sharpe_ratio import create_daily_returns, create_excess_returns
 
+def calculateMaxDD(cumRet):
+  pass
+
 #==================== EDA ====================#
 df = pd.read_csv('IGE.csv', header=0, parse_dates=[0], index_col=0)
 # print(df.iat[0,0]) # [row,col]
