@@ -39,7 +39,7 @@ print(f'Size of dataset = {df.size}')
 #==================== Create daily returns dataset ====================#
 adjCls = df[['Adj Close']] # or use .to_frame()
 dailyRet, num_obs = create_daily_returns(adjCls)
-print(f'Number of observations of dailyRet = {num_obs}')
+print(f'Number of observations of dailyRet = {num_obs - 1}')
 # print(type(dailyRet))
 
 #==================== Create excess returns dataset ====================#
