@@ -1,9 +1,15 @@
 import pandas as pd
 import numpy as np
 
-def create_daily_returns(adjClose):
-  num_obs = adjClose.size
-  dailyRet = adjClose.pct_change(periods=1)
+def create_daily_returns(adjCls):
+  num_obs = adjCls.size
+  dailyRet = adjCls.pct_change(periods=1)
+
+  # alternative method
+  # firstDiff = adjCls.diff(periods=1)
+  # dailyRet2 = firstDiff / adjCls.shift(periods=1)
+  # compare_df = dailyRet2 - dailyRet
+  # print(compare_df.sum())
 
   return dailyRet, num_obs
 
@@ -31,8 +37,8 @@ df = pd.read_csv('IGE.csv', header=0, parse_dates=[0], index_col=0)
 print(f'Size of dataset = {df.size}')
 
 #==================== Create daily returns dataset ====================#
-adjClose = df[['Adj Close']] # or use .to_frame()
-dailyRet, num_obs = create_daily_returns(adjClose)
+adjCls = df[['Adj Close']] # or use .to_frame()
+dailyRet, num_obs = create_daily_returns(adjCls)
 print(f'Number of observations of dailyRet = {num_obs}')
 # print(type(dailyRet))
 
