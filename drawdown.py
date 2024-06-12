@@ -57,10 +57,10 @@ for t in range(1, num_obs-1):
 # print(highWaterMark.head(10))
 
 maxDD = drawdown.max()
-print(f'Maximum Drawdown = {maxDD.values[0]}')
+print(f'Maximum Drawdown = {maxDD.values[0]*100}%')
 
 maxDDD = drawdownDuration.max()
-print(f'Maximum Drawdown Duration = {maxDDD.values[0]}')
+print(f'Maximum Drawdown Duration = {maxDDD.values[0]} trading days')
 
 # print(drawdown)
 # print(drawdownDuration)
