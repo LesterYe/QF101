@@ -2,15 +2,11 @@ import pandas as pd
 import numpy as np
 
 
-# trading_period = 252
-# risk_free_rate = 0.04
-
 df_ige = pd.read_csv("data/IGE.csv")
 df_ige["Adj Close Prev Period"] = df_ige["Adj Close"].shift(1)
 df_ige["Dailyret"] = (df_ige["Adj Close"] - df_ige["Adj Close Prev Period"])/df_ige["Adj Close Prev Period"]
 
 def calculate_drawdown(df_dailyret):
-
     temp = [None, df_dailyret["Dailyret"][1]]
     for x in range(2, len(df_dailyret["Dailyret"])):
         temp.append(((1 + temp[-1]) * (1 + df_dailyret["Dailyret"][x])) -1)
